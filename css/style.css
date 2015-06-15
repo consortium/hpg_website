@@ -2,28 +2,130 @@
 
 body {
 	font-family: 'Cotham', sans-serif;
-	color:#4D4D4D;
-	-webkit-text-size-adjust: none;
+	-webkit-text-size-adjust: none;  
+	-webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  animation: colorchange 70s infinite;
+	-webkit-animation: colorchange 70s infinite;
+  -webkit-animation-name: colorchange;
+  -webkit-animation-duration: 70s;
+  -webkit-animation-timing-function: initial;
+  -webkit-animation-delay: initial;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-direction: initial;
+  -webkit-animation-fill-mode: initial;
+  -webkit-animation-play-state: initial;
+}
+@keyframes colorchange {
+    0% {
+        background: white
+    }
+    25% {
+        background: #FAFFFF
+    }
+    50% {
+        background: #FFFAFA
+    }
+    75% {
+        background: #FFFFF5
+    }
+    100% {
+        background: white
+    }
+}
+@-webkit-keyframes colorchange
+/* Safari and Chrome - necessary duplicate */
+
+{
+    0% {
+        background: white
+    }
+    20% {
+        background: #fffecf
+    }
+    40% {
+        background: white
+    }
+    65% {
+        background: #ffcfe3
+    }
+    80% {
+        background: white
+    }
+    100% {
+        background: #cfd8ff
+    }
+}
+
+a, a:hover, a:visited, a:active {
+    color: black;
+    border-bottom: 3px solid black;
 }
 
 h1, h2, h3 {
 	font-family: 'Montserrat', sans-serif;
-	font-weight:700;
-	color:#212f3f;
+	font-weight:500;
+	
+}
+
+h1 {
+    font-size:70px;
+    letter-spacing: 2px;
+    padding: 30px 0 30px 0;
 }
 
 h2 {
-	font-size:44px;
+	font-size: 36px;
+    padding: 120px 0 15px 0;
+    margin: 0;
+    text-transform: uppercase;
 }
 
 h3 {
-	color:#33B5BC;
-	font-size:21px;
+	font-size:30px;
+	line-height: 34px;
 	margin-bottom:1.5rem;
+	text-align: center;
+	padding-top: 30px;
+	padding-bottom: 10px;
+}
+p {
+    line-height: 23px;
+    font-size: 19px;
+}
+
+.bar-left {
+    border-left: 5px solid black;
+}
+.bar-right {
+    border-right: 5px solid black;
+}
+.bar-bottom {
+    border-bottom: 5px solid black;
+}
+.bar-top {
+    border-top: 5px solid black;
 }
 
 .row {
 	max-width:60rem;
+}
+.row1 {
+    height: 450px;
+}
+.row2 {
+    height: 680px;
+}
+.medium-text {
+    padding: 30px 0;
+}
+.medium-text p {
+    font-size: 24px;
+    line-height: 29px;
+    margin-bottom: 0;
+}
+.medium-text p + p {
+    text-indent: 40px;
 }
 
 .contain-to-grid {
@@ -140,13 +242,11 @@ h3 {
 }
 
 .title {
-	height:100px;
-	color:#212F3F;
 	line-height:100px !important;
 }
 
 .title h2{
-	line-height:80px !important;
+	line-height:45px !important;
 }
 
 .title.grey_title {
@@ -517,54 +617,76 @@ footer .button{
 	font-size:16px !important;
 }
 
+@media only screen and (max-width: 970px) {
+    .medium-text {
+        padding: 30px;
+    }
+    .columns {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+    .bar-left {
+        border-left: 0;
+    }
+    .bar-right {
+        border-right: 0;
+    }
+    .row1 {
+        height: unset;
+    }
+    .row2 {
+        height: unset;
+    }
+}
+
 @media only screen and (max-width: 40em) {
 	
-.book_wrap {
-	margin: 0 auto 30px auto;
-	text-align: center;
-	width: 185px;
-}
-
-footer {
-	padding-bottom: 25px;
-}
-
-.top-bar-section ul {
-	display:none;
-}
-
-#menu_expand {
-	display: block;
-}
-
-.mobile_nav {
-	display:block;
-}
-
-#topnav.contain-to-grid {
-	display:none;
-}
-
-.contain-to-grid .top-bar .title-area {
-margin-top: 18px;
-}
-
-.contain-to-grid {
-height: 78px;
-}
-
-.contain-to-grid .top-bar {
-height: 78px;
-}
-
-.featured {
-font-size: 32px;
--webkit-text-size-adjust: none;
-line-height:40px;
-}
-
-.feat_arrow {
-margin-top: 15px;
-}
+    .book_wrap {
+    	margin: 0 auto 30px auto;
+    	text-align: center;
+    	width: 185px;
+    }
+    
+    footer {
+    	padding-bottom: 25px;
+    }
+    
+    .top-bar-section ul {
+    	display:none;
+    }
+    
+    #menu_expand {
+    	display: block;
+    }
+    
+    .mobile_nav {
+    	display:block;
+    }
+    
+    #topnav.contain-to-grid {
+    	display:none;
+    }
+    
+    .contain-to-grid .top-bar .title-area {
+    margin-top: 18px;
+    }
+    
+    .contain-to-grid {
+    height: 78px;
+    }
+    
+    .contain-to-grid .top-bar {
+    height: 78px;
+    }
+    
+    .featured {
+    font-size: 32px;
+    -webkit-text-size-adjust: none;
+    line-height:40px;
+    }
+    
+    .feat_arrow {
+    margin-top: 15px;
+    }
 
 } /* max-width 640px, mobile-only styles, use when QAing mobile issues */
