@@ -43,20 +43,20 @@ body {
     0% {
         background: white
     }
-    20% {
-        background: #fffecf
+    25% {
+        background: #EBFFFF
     }
-    40% {
-        background: white
+    50% {
+        background: #FFFFF0
     }
-    65% {
-        background: #ffcfe3
+    70% {
+        background: #FFEBD6
     }
-    80% {
-        background: white
+    85% {
+        background: #FFEBEB
     }
     100% {
-        background: #cfd8ff
+        background: white
     }
 }
 
