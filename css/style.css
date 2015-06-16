@@ -83,7 +83,12 @@ h2 {
     margin: 0;
     text-transform: uppercase;
 }
-
+.claim {
+    font-size: 28px; 
+    letter-spacing: 1px;
+    padding-bottom: 50px; 
+    padding-top: 30px; 
+}
 h3 {
     font-size:30px;
     line-height: 34px;
@@ -130,7 +135,11 @@ p {
 .medium-text p + p {
     text-indent: 40px;
 }
-
+.big-dot {
+    font-size: 70px; 
+    vertical-align: -18px;
+    font-family: sans-serif;
+}
 .contain-to-grid {
     height:70px;
     background-color:#33B5BC;
@@ -245,11 +254,11 @@ p {
 }
 
 .title {
-    line-height:100px !important;
+    line-height:100px;
 }
 
 .title h2{
-    line-height:45px !important;
+    line-height:45px;
 }
 
 .title.grey_title {
@@ -620,7 +629,8 @@ footer .button{
     font-size:16px !important;
 }
 
-@media only screen and (max-width: 970px) {
+
+@media only screen and (max-width: 1025px) {
     .medium-text {
         padding: 30px;
     }
@@ -646,7 +656,7 @@ footer .button{
     }
 }
 
-@media only screen and (max-width: 40em) {
+@media only screen and (max-width: 640px) {
     h1 {
         font-size:40px;
         padding: 30px 0 30px 0;
@@ -716,6 +726,36 @@ footer .button{
     }
 
 } /* max-width 640px, mobile-only styles, use when QAing mobile issues */
+
+@media only screen and (max-width: 360px) {
+    .medium-text p {
+        font-size: 16px;
+        line-height: 19px;
+    }
+    .medium-text p + p {
+        text-indent: 0;
+    }
+    h1 {
+        font-size: 30px;
+    }
+    .title h2 {
+        font-size: 28px;
+        line-height: 31px;
+    }
+    p {
+        font-size: 16px;
+        line-height: 19px;
+    }
+    .title h2.claim {
+        font-size: 14px;
+        line-height: 20px;
+    }
+    .big-dot {
+        font-size: 50px; 
+        vertical-align: -13px;
+        font-family: sans-serif;
+    }
+}
 
 @media print {
     .screen-only {
