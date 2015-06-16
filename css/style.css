@@ -21,13 +21,16 @@ body {
         background: white
     }
     25% {
-        background: #FAFFFF
+        background: #EBFFFF
     }
     50% {
-        background: #FFFAFA
+        background: #FFFFF0
     }
-    75% {
-        background: #FFFFF5
+    70% {
+        background: #FFEBD6
+    }
+    85% {
+        background: #FFEBEB
     }
     100% {
         background: white
