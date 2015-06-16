@@ -621,6 +621,10 @@ footer .button{
     .medium-text {
         padding: 30px;
     }
+    .medium-text p {
+        font-size: 20px;
+        line-height: 24px;
+    }
     .columns {
         padding-left: 30px;
         padding-right: 30px;
@@ -640,17 +644,36 @@ footer .button{
 }
 
 @media only screen and (max-width: 40em) {
-    
+    h1 {
+        font-size:40px;
+        padding: 30px 0 30px 0;
+    }
+    .bar-left {
+        border-left: 0;
+    }
+    .bar-right {
+        border-right: 0;
+    }
+    .row1 {
+        height: unset;
+    }
+    .row2 {
+        height: unset;
+    }
+    .bar-top-big-screen {
+        border-top: 0;
+    }
+    .bar-bottom-big-screen {
+        border-bottom: 0;
+    }
+    footer {
+        padding-bottom: 25px;
+    }
     .book_wrap {
         margin: 0 auto 30px auto;
         text-align: center;
         width: 185px;
     }
-    
-    footer {
-        padding-bottom: 25px;
-    }
-    
     .top-bar-section ul {
         display:none;
     }
@@ -705,10 +728,10 @@ footer .button{
     .page-break {
         page-break-after: always;
     }
-    .bar-top-screen {
+    .bar-top-big-screen {
         border-top: 0;
     }
-    .bar-bottom-screen {
+    .bar-bottom-big-screen {
         border-bottom: 0;
     }
     .bar-left {
