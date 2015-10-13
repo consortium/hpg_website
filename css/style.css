@@ -2,7 +2,7 @@
 
 body {
     font-family: 'Cotham', sans-serif;
-    -webkit-text-size-adjust: none;  
+    -webkit-text-size-adjust: none;
     -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   animation: colorchange 70s infinite;
@@ -67,8 +67,7 @@ a, a:hover, a:visited, a:active {
 
 h1, h2, h3 {
     font-family: 'Montserrat', sans-serif;
-    font-weight:500;
-    
+    font-weight: 500;
 }
 
 h1 {
@@ -84,10 +83,10 @@ h2 {
     text-transform: uppercase;
 }
 .claim {
-    font-size: 28px; 
+    font-size: 28px;
     letter-spacing: 1px;
-    padding-bottom: 50px; 
-    padding-top: 30px; 
+    padding-bottom: 50px;
+    padding-top: 30px;
 }
 h3 {
     font-size:30px;
@@ -97,9 +96,15 @@ h3 {
     padding-top: 30px;
     padding-bottom: 10px;
 }
+h3 a {
+    line-height: 38px;
+}
 p {
     line-height: 23px;
     font-size: 19px;
+}
+p a {
+    line-height: 40px;
 }
 
 .bar-left {
@@ -136,7 +141,7 @@ p {
     text-indent: 40px;
 }
 .big-dot {
-    font-size: 70px; 
+    font-size: 70px;
     vertical-align: -18px;
     font-family: sans-serif;
 }
@@ -690,37 +695,37 @@ footer .button{
     .top-bar-section ul {
         display:none;
     }
-    
+
     #menu_expand {
         display: block;
     }
-    
+
     .mobile_nav {
         display:block;
     }
-    
+
     #topnav.contain-to-grid {
         display:none;
     }
-    
+
     .contain-to-grid .top-bar .title-area {
     margin-top: 18px;
     }
-    
+
     .contain-to-grid {
     height: 78px;
     }
-    
+
     .contain-to-grid .top-bar {
     height: 78px;
     }
-    
+
     .featured {
     font-size: 32px;
     -webkit-text-size-adjust: none;
     line-height:40px;
     }
-    
+
     .feat_arrow {
     margin-top: 15px;
     }
@@ -751,7 +756,7 @@ footer .button{
         line-height: 20px;
     }
     .big-dot {
-        font-size: 50px; 
+        font-size: 50px;
         vertical-align: -13px;
         font-family: sans-serif;
     }
