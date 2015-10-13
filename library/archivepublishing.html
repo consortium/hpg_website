@@ -1,0 +1,183 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="dcterms.publisher" content="Hybrid Publishing Group" />
+<link rel="publisher" href="http://hpg.io/" />
+<meta name="generator" content="(http://hpg.io/)" />
+<meta name="dcterms.type" content="Text" />
+<meta name="copyright" content="Hybrid Publishing Group" />
+<meta property="og:site_name" content="Hybrid Publishing Group" />
+<link rel="shortcut icon" href="img/favicon.ico" type="favicon" />
+<meta name="twitter:creator" content="@hy_pub" />
+<meta name="twitter:site" content="@hy_pub" />
+<meta name="twitter:card" content="summary" />
+<meta name="robots" content="follow, index" />
+<meta property="og:url" content="http://hpg.io/" />
+<meta name="google-site-verification" content="" />
+<meta name="keywords" content="Publishing, Open Source, research, infrastructure, Hybrid Publishing Consortium, Single Source, rapid prototyping, software, development" />
+<meta name="description" content="modular solutions for hybrid publishing" />
+<meta name="copyright" content="Hybrid Publishing Group" />
+<link rel="canonical" href="http://hpg.io/" />
+<link rel="shortlink" href="http://hpg.io/" />
+<meta property="og:type" content="website" />
+<meta name="dcterms.identifier" content="http://hpg.io/" />
+<meta name="dcterms.title" content="Hybrid Publishing Group" />
+<meta property="og:title" content="Hybrid Publishing Group" />
+    <title>Hybrid Publishing Group</title>
+    <link rel="stylesheet" href="../css/foundation.css" />
+    <link href="../css/style.css" rel="stylesheet" type="text/css">
+    <link href="../css/zotero-library.css" rel="stylesheet" type="text/css">
+    <link href="../css/fonts.css" rel="stylesheet" type="text/css">
+
+    <script src="../js/vendor/modernizr.js"></script>
+    <script src="../js/handlebars-1.0.rc.1.js"></script>
+    <script src="../js/jquery-1.7.2.min.js"></script>
+    <script src="library.js"></script>
+  </head>
+  <body>
+
+    <section>
+    	<div class="row">
+          <div class="large-4 columns text-center">
+            <h3><a href="https://research.consortium.io/" target="_blank">Publications</a></h3>
+          </div>
+          <div class="large-4 columns text-center">
+            <h3><a href="https://github.com/consortium" target="_blank">GitHub</a></h3>
+          </div>
+            <div class="large-4 columns text-center">
+            <h3><a href="./">Home</a></h3>
+          </div>
+        </div><!--Closing row-->
+    </section>
+
+	<section class="">
+    	<div class="row">
+        	<div class="large-12 columns text-center">
+        	    <h1>HPG<br />LIBRARY</h1>
+          	</div>
+        </div><!--Closing row-->
+    </section>
+
+
+    <section>
+        <div class="row">
+            <div class="large-12 columns text-center">
+                <h2 class="claim">Archive Publishing</h2>
+            </div>
+
+                <!-- it takes the list that is called items in the JSON response (data) (to access it go to the url api.zotero.org/… bleow) and puts them in the template -->
+                <script id="entry-template" type="text/x-handlebars-template">
+                {{#each items}}
+                <div class="large-12 columns bar-top">
+                    <div class="library-item {{#if data.parentItem}} attached-note {{/if}} {{#if data.itemType.note}} independent-note {{/if}} accordion">
+                        <!-- # is used to only output the data if they exist -->
+                        <div class="accordion-click">
+                            <div class="item-type">{{#if data.parentItem}} <span class="underline"><b>&#8627;</b> ATTACHED-{{/if}}{{{ data.itemType }}}</span></div>
+                            <div class="item-reference"><em>{{ data.title }}</em>{{#if data.creators}}{{#each data.creators}}, {{ firstName }} {{ lastName }}{{/each}}{{/if}}{{#if data.publisher}}, {{ data.publisher }}{{/if}}{{#if data.date}}, {{ data.date }}{{/if}}</div>
+                        </div>
+                        <div class="content-hidden">
+                            <div class="item-tags">{{#if data.tags}}Keywords:<br />{{#each data.tags}}<p>{{ tag }}</p>{{/each}}{{/if}}</div>
+                            <div class="item-abstract">
+                                {{#if data.abstractNote}}<p>Abstract: {{ data.abstractNote }}</p>{{/if}}
+                                <p>{{{ data.note }}}</p>
+                            </div>
+                            <div class="item-link">
+                                {{#if data.url}}<p>Link: <a href="{{ data.url }}" target="_blank">{{ data.url }}</a></p>{{/if}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+                </script>
+
+                <script>
+                $(function() {
+                    /* takes the entry-template element */
+                    var source = $("#entry-template").html();
+                    /* the jquery library Handelbars converts the template text into a template object*/
+                    var template = Handlebars.compile(source);
+
+                /* TO ADD A TITLE WHEN THERE IS NO TITLE
+                (but it doesn’t change the way it is ordered…)
+                    var processData = function(inData) {
+                        var outData = [];
+                        for (var i=0; i < inData.length; i++) {
+                            item = inData[i];
+                            // do things with item
+                            if (!item.data.title) {
+                                item.data.title = "Here is a title!"
+                            }
+                            outData.push(item);
+                        }
+                        return outData;
+                    }
+                */
+
+
+                var processData = function(inData) {
+                    var obj = {}
+                    for (var i=0; i < inData.length; i++) {
+                        item = inData[i];
+                        // do things with item
+                        // create a new way of ordering things, easier to use
+                        // (not as a list like before but as an ‘object’ ~ dictionnary)
+                        obj[item.data.key] = item;
+                    }
+                    //TO ORDER THINGS IN A SPECIFIC WAY
+                    var getSortString = function(item) {
+                        if (!item.data.title) {
+                            if (item.data.parentItem) {
+                                return obj[item.data.parentItem].data.title + item.data.note;
+                            } else {
+                                return item.data.note;
+                            }
+                        }
+                        return item.data.title;
+                    }
+                    //takes everytime two objects of the array and compares them
+                    inData.sort(function(a, b) {
+                        a = getSortString(a);
+                        b = getSortString(b);
+                        if (a === b) return 0;
+                        if (a < b) return -1;
+                        if (a > b) return 1;
+                    });
+                    return inData;
+                }
+
+
+                    /* gets the collection from zotero */
+                 $.getJSON('https://api.zotero.org/groups/255662/collections/M6TR2URG/items?key=1L6PZcpcAGt60UArycW14g7v&limit=100&sort=title', function(incomingData) {
+                     /* if the query succeeds, the response will be available as the variable “data”: */
+                     /* this variable is sent to the template above */
+                        var processedData = processData(incomingData);
+                        $("#items-container").html(template({ items: processedData }));
+                    });
+                });
+
+
+                </script>
+
+                <div class="container">
+                    <div id="items-container">
+                </div>
+
+        </div><!--Closing row-->
+    </section>
+
+    <section class="">
+    	<div class="row">
+        	<div class="large-12 columns bar-top text-center">
+                <h3><a href="/library.html">back to collections</a></h3>
+          	</div>
+        </div><!--Closing row-->
+    </section>
+
+
+    <script src="../js/vendor/jquery.js"></script>
+    <script src="../js/foundation.min.js"></script>
+
+  </body>
+</html>

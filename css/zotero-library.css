@@ -1,0 +1,82 @@
+.library-item {
+    font-size: 1.2em;
+    padding-top: 20px;
+}
+.item-type {
+    text-transform: uppercase;
+    float: left;
+    padding-right: 10px;
+    margin-bottom: 1em;
+    width: 25%;
+    -ms-word-break: break-all;
+    word-break: break-all;
+    /* Non standard for webkit*/
+    word-break: break-word;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    hyphens: auto;
+}
+.item-reference {
+    float: left;
+    width: 75%;
+    margin-bottom: 1em;
+}
+.item-tags {
+    float: left;
+    font-size: 0.8em;
+    width: 25%;
+    padding-right: 10px;
+    margin-bottom: 1em;
+}
+.item-tags p + p, .item-tags p {
+    text-indent: 0px;
+    font-size: 1em;
+    margin-bottom: 0;
+}
+.item-abstract {
+    float: left;
+    width: 75%;
+    margin-bottom: 1em;
+}
+
+.attached-note {
+    margin-left: 50px;
+    margin-right: 0;
+}
+.attached-note .underline {
+    border-bottom: 3px solid black;
+}
+.attached-note img, .attached-note p img {
+    max-width: 100%;
+}
+.attached-note img:hover, .attached-note p img:hover {
+    max-width: none;
+}
+
+.medium-text p {
+    font-size: 1em;
+}
+
+.accordion-click {
+    height: 40px;
+    cursor: pointer;
+}
+.content-hidden {
+    display: none;
+}
+
+
+@media only screen and (max-width: 1025px) {
+}
+
+@media only screen and (max-width: 640px) {
+} /* max-width 640px, mobile-only styles, use when QAing mobile issues */
+
+@media only screen and (max-width: 360px) {
+}
+
+@media print {
+}
+@media screen {
+
+}
